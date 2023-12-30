@@ -1,4 +1,5 @@
-*Import CT State Level JOLTS Data
+*Import CT State Level JOLTS Data from BLS file sharing, clean and prepare for use in tableau visualization, export as excel
+
 clear
 import delimited "https://download.bls.gov/pub/time.series/jt/jt.data.0.Current"
 *thin file to work with
@@ -64,6 +65,3 @@ generate Total_Separations_Rate_YOY = (Total_Separations_Rate[_n]-Total_Separati
 generate Unemployed_Per_Open_Ratio_YOY = (Unemployed_Per_Open_Ratio[_n]-Unemployed_Per_Open_Ratio[_n-12])/Unemployed_Per_Open_Ratio[_n-12]
 
 export excel using "Data For Tableau.xlsx", firstrow(variables) sheet(CT_JOLTS, replace)
-
-
-
