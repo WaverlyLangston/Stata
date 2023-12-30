@@ -1,4 +1,4 @@
-*Import Census BFS monthly data
+*Import Census BFS monthly data, clean and prepare for use in tableau visualization, export to xl
 clear
 import delimited "https://www.census.gov/econ/bfs/csv/bfs_monthly.csv"
 
@@ -52,13 +52,3 @@ foreach var of varlist AK_BA_BA AK_BA_HBA AL_BA_BA AL_BA_HBA AR_BA_BA AR_BA_HBA 
 drop if CT_BA_BA == .
  
 export excel using "Data For Tableau.xlsx", firstrow(variables) sheet(Biz_Form_All, replace)
-
-
-
-
-
-
-
-
-
-
